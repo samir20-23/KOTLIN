@@ -1,6 +1,6 @@
 package com.example.fundamentals_KOTLIN.tutors
 fun main (){
-     val content :String = "content";
+    val content :String = "content";
     println(content.length)
 
 //
