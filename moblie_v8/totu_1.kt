@@ -1,4 +1,4 @@
-package com.example.fundamentals_KOTLIN.moblie_v8
+package com.example.fundamentals_KOTLIN.tutors
 
 fun main (){
     val num: Int = 22
