@@ -17,22 +17,30 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Moblie_v8Theme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    val message = checkAge(18) // Call the conditional function
+                    Greeting(message)
                 }
             }
         }
     }
 }
 
+fun checkAge(age: Int): String {
+    return if (age >= 18) {
+        "Vous êtes majeur."
+    } else {
+        "Vous êtes mineur."
+    }
+}
+
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(message: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = message,
         modifier = modifier
     )
 }
@@ -41,6 +49,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     Moblie_v8Theme {
-        Greeting("Android")
+        Greeting("Vous êtes majeur.")
     }
 }
