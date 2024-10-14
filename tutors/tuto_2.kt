@@ -1,10 +1,10 @@
 package com.example.fundamentals_KOTLIN.tutors
-
 fun main (){
-    val  num = "string";
-    val wheen = when(num){
-        "string" -> "true"
-        else->"false"
-    }
-    println(wheen);
+     val content :String = "content";
+    println(content.length)
+
+//
+
+    val content2  :String?=null;
+    println(content2?.length);
 }

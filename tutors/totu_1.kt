@@ -9,5 +9,13 @@ fun main (){
     }else{
   println("false");
     }
+
+    val  num2 = "string";
+    val wheen = when(num2){
+        "string" -> "true"
+        else->"false"
+    }
+    println(wheen);
+
     }
 
