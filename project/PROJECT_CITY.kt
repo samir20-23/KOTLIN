@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -46,7 +47,7 @@ class MainActivity : ComponentActivity() {
 fun imgChanger(modifier: Modifier = Modifier) {
     var imagePath by remember { mutableStateOf(R.drawable.jebha) }
     var description by remember { mutableStateOf("El Jebha is a beautiful coastal city located in northern Morocco.") }
-    var buttonText by remember { mutableStateOf("Change to Chefchaouen") }
+    var buttonText by remember { mutableStateOf("Change img 2") }
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -56,7 +57,7 @@ fun imgChanger(modifier: Modifier = Modifier) {
             contentDescription = null,
             modifier = Modifier
                 .fillMaxSize()
-                .graphicsLayer(alpha = 0.5f),
+                .graphicsLayer(alpha = 0.4f),
             contentScale = ContentScale.Crop
         )
 
@@ -64,36 +65,40 @@ fun imgChanger(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
+                .padding(25.dp)
                 .border(
                     BorderStroke(2.dp, Color(0x4DFFFFFF))
                 ),
             verticalArrangement = Arrangement.Center
+
         ) {
             Image(
                 painter = painterResource(imagePath),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(250.dp)
+                    .size(290.dp)
                     .clip(RoundedCornerShape(16.dp))
                     .shadow(4.dp, RoundedCornerShape(16.dp))
-                    .padding(4.dp),
+                    .padding(5.dp),
                 contentScale = ContentScale.Crop
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
-            Button(onClick = {
-                if (imagePath == R.drawable.jebha) {
-                    imagePath = R.drawable.chefchaouen
-                    description = "Chefchaouen is known for its blue buildings and beautiful scenery."
-                    buttonText = "Change to Jebha"
-                } else {
-                    imagePath = R.drawable.jebha
-                    description = "El Jebha is a beautiful coastal city located in northern Morocco."
-                    buttonText = "Change to Chefchaouen"
-                }
-            }) {
+            Button(
+                onClick = {
+                    if (imagePath == R.drawable.jebha) {
+                        imagePath = R.drawable.jebha2
+                        description = " Situated in the Al Hoceima region, it is approximately."
+                        buttonText = "Change img 1"
+                    } else {
+                        imagePath = R.drawable.jebha
+                        description = "El Jebha is a beautiful coastal city located in northern Morocco."
+                        buttonText = "Change img 2"
+                    }
+                },
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3CB371)) // Change to your desired color
+            ) {
                 Text(buttonText)
             }
 
@@ -102,12 +107,13 @@ fun imgChanger(modifier: Modifier = Modifier) {
             Text(
                 text = description,
                 style = MaterialTheme.typography.bodyMedium.copy(
-                    fontSize = 20.sp,
+                    fontSize = 25.sp,
                     textAlign = TextAlign.Center,
-                    color = Color.White,
-                    shadow = Shadow(color = Color.Black, offset = Offset(4f, 4f), blurRadius = 1f)
+                    color = Color.Black,
+                    shadow = Shadow(color = Color.Black, offset = Offset(0.2f, 0.2f), blurRadius = 1f)
+
                 ),
-                modifier = Modifier.align(Alignment.CenterHorizontally)
+                modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }
     }
