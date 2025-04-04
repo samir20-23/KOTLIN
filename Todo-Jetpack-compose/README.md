@@ -1,4 +1,11 @@
- 
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=40&duration=4&pause=20&color=6D26BFFF&center=true&vCenter=true&width=482&lines=Jetpack" alt="Samir Aoulad Amar" /> 
+
+<div id="header" align="center">
+  <img src="https://media.giphy.com/media/l4KhQo2MESJkc6QbS/giphy.gif?cid=ecf05e47qj2ifoykk3r6zds5y36h9fbd3q3255hs9bk6c02r&ep=v1_gifs_related&rid=giphy.gif&ct=g" width="220"/> 
+    <img src="https://media.giphy.com/media/ztowdimL4paHXUqQTX/giphy.gif?cid=ecf05e47qj2ifoykk3r6zds5y36h9fbd3q3255hs9bk6c02r&ep=v1_gifs_related&rid=giphy.gif&ct=g" width="220"/> 
+      <img src="https://media.giphy.com/media/Kc3Lu4bP5mCuV5EqIE/giphy.gif?cid=ecf05e47fcz6qgpr9kc38m1kmdcqcwsw9mc95qz1096zkshu&ep=v1_gifs_related&rid=giphy.gif&ct=g" width="220"/> 
+      
+</div> 
 # Todo Jetpack Compose Lab
 
 This project is a lab app built with **Kotlin**, **Jetpack Compose**, **Retrofit**, and **Coroutines**. It demonstrates how to create a basic Todo app, manage state with a ViewModel, fetch data from an API, and use coroutines for asynchronous tasks.
@@ -483,4 +490,8 @@ class CounterViewModel : ViewModel() {
     }
 }
 ```
- 
+ <div id="header" align="center">
+  <img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="220"/> 
+    <img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="220"/> 
+      <img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="220"/>  
+</div> 
