@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun VideoReel() {
+fun VideoReel(modifier: Modifier = Modifier) {
     val videos = listOf(
         "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
@@ -18,7 +18,7 @@ fun VideoReel() {
 
     VerticalPager(
         state = pagerState,
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) { page ->
         VideoPlayer(
             videoUri = videos[page],
