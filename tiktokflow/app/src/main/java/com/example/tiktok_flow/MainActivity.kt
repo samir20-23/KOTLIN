@@ -14,6 +14,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.tiktok_flow.ui.composables.BottomNavbar
 import com.example.tiktok_flow.ui.navigation.Screen
 import com.example.tiktok_flow.ui.screens.HomeScreen
+import com.example.tiktok_flow.ui.screens.LocationScreen
+import com.example.tiktok_flow.ui.screens.MessagesScreen
+import com.example.tiktok_flow.ui.screens.ProfileScreen
 import com.example.tiktok_flow.ui.theme.TiktokflowTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,7 +38,15 @@ class MainActivity : ComponentActivity() {
                         composable(Screen.Home.route) {
                             HomeScreen()
                         }
-                        // Add other screens here
+                        composable(Screen.Location.route) {
+                            LocationScreen()
+                        }
+                        composable(Screen.Messages.route) {
+                            MessagesScreen()
+                        }
+                        composable(Screen.Profile.route) {
+                            ProfileScreen()
+                        }
                     }
                 }
             }
