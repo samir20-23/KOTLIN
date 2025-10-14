@@ -57,7 +57,7 @@ fun VideoCard(
             Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     AsyncImage(
-                        model = uploader?.avatar,
+                        model = uploader?.profileImageUrl,
                         contentDescription = "User avatar",
                         modifier = Modifier
                             .size(48.dp)

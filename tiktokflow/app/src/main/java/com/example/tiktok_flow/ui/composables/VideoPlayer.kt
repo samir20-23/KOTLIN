@@ -2,7 +2,6 @@ package com.example.tiktok_flow.ui.composables
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -13,9 +12,9 @@ import androidx.media3.ui.PlayerView
 
 @Composable
 fun VideoPlayer(
-    modifier: Modifier = Modifier,
     videoUri: String,
-    isActive: Boolean
+    isActive: Boolean,
+    modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
     val exoPlayer = remember {
@@ -25,12 +24,10 @@ fun VideoPlayer(
         }
     }
 
-    LaunchedEffect(isActive) {
-        if (isActive) {
-            exoPlayer.play()
-        } else {
-            exoPlayer.pause()
-        }
+    if (isActive) {
+        exoPlayer.play()
+    } else {
+        exoPlayer.pause()
     }
 
     DisposableEffect(Unit) {
@@ -40,8 +37,8 @@ fun VideoPlayer(
     }
 
     AndroidView(
-        factory = { ctx ->
-            PlayerView(ctx).apply {
+        factory = {
+            PlayerView(it).apply {
                 player = exoPlayer
                 useController = false
             }
