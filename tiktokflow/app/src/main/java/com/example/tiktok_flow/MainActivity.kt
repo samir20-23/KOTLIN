@@ -8,7 +8,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.tiktok_flow.ui.composables.VideoReel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.tiktok_flow.ui.composables.BottomNavbar
+import com.example.tiktok_flow.ui.navigation.Screen
+import com.example.tiktok_flow.ui.screens.HomeScreen
 import com.example.tiktok_flow.ui.theme.TiktokflowTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,8 +22,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TiktokflowTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    VideoReel(modifier = Modifier.padding(innerPadding))
+                val navController = rememberNavController()
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    bottomBar = { BottomNavbar(navController = navController) }
+                ) { innerPadding ->
+                    NavHost(
+                        navController = navController,
+                        startDestination = Screen.Home.route,
+                        modifier = Modifier.padding(innerPadding)
+                    ) {
+                        composable(Screen.Home.route) {
+                            HomeScreen()
+                        }
+                        // Add other screens here
+                    }
                 }
             }
         }

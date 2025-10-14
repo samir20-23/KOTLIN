@@ -4,32 +4,34 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tiktok_flow.ui.viewmodel.VideoViewModel
+import com.example.tiktok_flow.data.model.User
+import com.example.tiktok_flow.data.model.Video
 
 @Composable
-fun VideoReel(modifier: Modifier = Modifier, viewModel: VideoViewModel = viewModel()) {
-    val videos by viewModel.videos.collectAsState()
-    val users by viewModel.users.collectAsState()
+fun VideoReel(
+    videos: List<Video>,
+    users: Map<String, User>,
+    modifier: Modifier = Modifier
+) {
+    val pagerState = rememberPagerState(
+        initialPage = 0,
+        initialPageOffsetFraction = 0f
+    ) {
+        videos.size
+    }
 
-    if (videos.isNotEmpty()) {
-        val pagerState = rememberPagerState(pageCount = { videos.size })
-
-        VerticalPager(
-            state = pagerState,
-            modifier = modifier.fillMaxSize()
-        ) { page ->
-            val video = videos[page]
-            val user = users[video.userId]
-            VideoCard(
-                video = video,
-                uploader = user,
-                isActive = pagerState.currentPage == page,
-                modifier = Modifier.fillMaxSize()
-            )
-        }
+    VerticalPager(
+        state = pagerState,
+        modifier = modifier.fillMaxSize()
+    ) { page ->
+        val video = videos[page]
+        val uploader = users[video.userId]
+        VideoCard(
+            video = video,
+            uploader = uploader,
+            isActive = pagerState.currentPage == page,
+            modifier = Modifier.fillMaxSize()
+        )
     }
 }

@@ -10,5 +10,5 @@ data class User(
     val country: String = "",
     val fullAddress: String = "",
     val role: String = "",
-    val avatar: String? = null
+    val profileImageUrl: String = ""
 )
